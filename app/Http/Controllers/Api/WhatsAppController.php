@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Log;
 
 class WhatsAppController extends Controller
 {
-    private $managerUrl = 'http://127.0.0.1:5001';
+    private $managerUrl;
+
+    public function __construct()
+    {
+        $this->managerUrl = env('WHATSAPP_MANAGER_URL', 'http://127.0.0.1:5001');
+    }
 
     /**
      * Get WhatsApp status for current company
